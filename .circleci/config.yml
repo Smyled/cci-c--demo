@@ -6,4 +6,4 @@ jobs:
      steps:
        - checkout
        - run: echo "hello world"
-       - run: echo gcc --version
+       - run: $ gcc --version
