@@ -7,3 +7,5 @@ jobs:
        - checkout
        - run: echo "hello world"
        - run: gcc --version
+       - run: g++ -o hello.exe sample.c
+       - run: hello
