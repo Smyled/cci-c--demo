@@ -6,7 +6,7 @@ program: sample.o
 sample.o: sample.c
 
 clean:
-    rm -f program sample.o
+		rm -f program sample.o
     
 run: program
-    ./program
+		./program
