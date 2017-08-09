@@ -9,4 +9,4 @@ clean:
 		rm -f program sample.o
     
 run: program
-		./program.exe
+		./program
