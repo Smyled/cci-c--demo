@@ -8,4 +8,4 @@ jobs:
        - run: echo "hello world"
        - run: gcc --version
        - run: make
-       - run: ./tool.exe
+       - run: tool.exe
