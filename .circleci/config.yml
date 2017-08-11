@@ -2,11 +2,10 @@ version: 2
 jobs:
    build:
      docker:
-       - image: gcc:7.1
+       - image: mono:3.12.1
      steps:
        - checkout
        - run: echo "hello world"
-       - run: gcc --version
-       - run: make
+       - run: mono --version
        - run: ls
-       - run: tool
+
