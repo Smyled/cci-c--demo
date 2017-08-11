@@ -1,12 +1,28 @@
-CC=gcc 
-CFLAGS=-Wall
+CC=gcc
+CXX=g++
+RM=rm -f
+CPPFLAGS=-g $(shell root-config --cflags)
+LDFLAGS=-g $(shell root-config --ldflags)
+LDLIBS=$(shell root-config --libs)
 
-all: program
-program: sample.o
-sample.o: sample.c
+SRCS=sample.c
+OBJS=$(subst .cc,.o,$(SRCS))
+
+all: tool
+
+tool: $(OBJS)
+	$(CXX) $(LDFLAGS) -o tool $(OBJS) $(LDLIBS) 
+
+depend: .depend
+
+.depend: $(SRCS)
+	$(RM) ./.depend
+	$(CXX) $(CPPFLAGS) -MM $^>>./.depend;
 
 clean:
-		rm -f program sample.o
-    
-run: program
-		./program
+	$(RM) $(OBJS)
+
+distclean: clean
+	$(RM) *~ .depend
+
+include .depend
